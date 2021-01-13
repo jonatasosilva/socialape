@@ -12,6 +12,7 @@ exports.getAllScreams = (req, res) => {
           body: doc.data().body,
           userHandle: doc.data().userHandle,
           createdAt: doc.data().createdAt,
+          commentCount: doc.data().commentCount,
           likeCount: doc.data().likeCount,
           userImage: doc.data().userImage,
         });
