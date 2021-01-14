@@ -16,7 +16,6 @@ import Typography from "@material-ui/core/Typography";
 
 import ChatIcon from "@material-ui/icons/Chat";
 
-
 import { connect } from "react-redux";
 
 const styles = {
@@ -86,7 +85,11 @@ class Scream extends Component {
             <ChatIcon color="primary" />
           </MyButton>
           <span>{commentCount} comments</span>
-          <ScreamDialog screamId={screamId} user={userHandle} />
+          <ScreamDialog
+            screamId={screamId}
+            userHandle={userHandle}
+            openDialog={this.props.openDialog}
+          />
         </CardContent>
       </Card>
     );
@@ -97,12 +100,11 @@ Scream.propTypes = {
   user: PropTypes.object.isRequired,
   scream: PropTypes.object.isRequired,
   classes: PropTypes.object.isRequired,
+  openDialog: PropTypes.bool,
 };
 
 const mapStateToProps = (state) => ({
   user: state.user,
 });
 
-export default connect(
-  mapStateToProps,
-)(withStyles(styles)(Scream));
+export default connect(mapStateToProps)(withStyles(styles)(Scream));
