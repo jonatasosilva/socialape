@@ -2,6 +2,9 @@ const functions = require("firebase-functions");
 const app = require("express")();
 const FBAuth = require("./utils/fbAuth");
 
+const cors = require("cors");
+app.use(cors());
+
 const { db } = require("./utils/admin");
 
 const {
@@ -38,8 +41,8 @@ app.post("/login", login);
 app.post("/user/image", FBAuth, uploadImage);
 app.post("/user", FBAuth, addUserDetails);
 app.get("/user", FBAuth, getAuthenticatedUser);
-app.get('/user/:handle', getUserDetails);
-app.post('/notifications', FBAuth, markNotificationsRead);
+app.get("/user/:handle", getUserDetails);
+app.post("/notifications", FBAuth, markNotificationsRead);
 
 exports.api = functions.region("southamerica-east1").https.onRequest(app);
 
