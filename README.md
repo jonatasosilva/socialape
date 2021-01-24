@@ -1,4 +1,5 @@
 # Socialape
+![cover](https://raw.githubusercontent.com/jonatasosilva/socialape/main/assets/cover.gif)
 
 ## Sobre o projeto
 [https://socialape.jonatasosilva.dev/](https://socialape.jonatasosilva.dev/)
